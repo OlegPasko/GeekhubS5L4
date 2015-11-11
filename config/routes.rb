@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   # get 'pages/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   delete 'logout' => 'sessions#destroy'
+
+  get 'superpage' => 'pages#superpage'
 
   # post '/users/' => 'users#create'
 
