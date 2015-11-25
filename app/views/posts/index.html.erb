@@ -22,13 +22,13 @@
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
+      <tr id="post_<%= post.id %>">
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= post.user.name %></td>
         <td><%= link_to 'Show', post, class: "ololo #{'disabled' if current_user}" %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,5 +36,4 @@
 
 <br>
 
-<%= link_to image_tag('itunes.png'), new_post_path %>
-<%= image_tag('itunes.png') %>
+<%= link_to "New post", new_post_path, remote: true %>
